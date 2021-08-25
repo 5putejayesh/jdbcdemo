@@ -7,7 +7,7 @@ public class Employee implements Serializable {
 	private String name;
 	private String role;
 	private double salary;
-	private transient int age; // trasient or static will not serialized.
+	private transient int age; // trasient or static will not serialized as static belong to class.
 
 	public Employee(long id, String name, String role, double salary, int age) {
 		
