@@ -10,7 +10,7 @@ public class Employee implements Serializable {
 	private transient int age; //trasient or static will not serialized.
 
 	public Employee(long id, String name, String role, double salary, int age) {
-		super();
+		
 		this.id = id;
 		this.name = name;
 		this.role = role;
