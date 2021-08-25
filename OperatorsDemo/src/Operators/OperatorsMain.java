@@ -15,7 +15,7 @@ public class OperatorsMain {
 		
 		int arr[]=new int[3];
 		Scanner sc =new Scanner(System.in);
-		System.out.println("Enter Array Elements:");
+		System.out.println("Enter 3 Array Elements:");
 		for (int i=0;i<arr.length;i++){
 			arr[i]=sc.nextInt();
 		}
