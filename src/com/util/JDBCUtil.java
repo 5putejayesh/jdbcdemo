@@ -8,7 +8,7 @@ public class JDBCUtil {
 	private static final String JDBC_DRIVER="com.mysql.jdbc.Driver";
 	private static final String JDBC_URL="jdbc:mysql://localhost:3306/j2ee_jayesh?autoReconnect=true&useSSL=false";
 	private static final String JDBC_USERNAME="root";
-	private static final String JDBC_PASSWORD="admin";
+	private static final String JDBC_PASSWORD="admin";  
 	
 	public static Connection getConnection(){
 		Connection connection=null;
