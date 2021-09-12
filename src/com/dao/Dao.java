@@ -2,7 +2,7 @@ package com.dao;
 
 import java.util.List;
 
-import com.model.Employee;
+import com.entity.Employee;
 
 public interface Dao {
 

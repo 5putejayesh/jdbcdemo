@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.dao.Dao;
-import com.empdao.EmployeeDao;
-import com.model.Employee;
+import com.entity.Employee;
+import com.service.empdao.EmployeeDao;
 
 public class EmployeeApp {
 

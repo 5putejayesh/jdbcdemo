@@ -1,4 +1,4 @@
-package com.empdao;
+package com.service.empdao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dao.Dao;
-import com.model.Employee;
+import com.entity.Employee;
 import com.util.JDBCUtil;
 
 public class EmployeeDao implements Dao {
