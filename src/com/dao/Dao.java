@@ -8,6 +8,6 @@ public interface Dao {
 
 	Employee getEmployee(int id);
 	List<Employee> getAllEmployees();
-	int ceateEmployee(Employee employee);
+	int createEmployee(Employee employee);
 	int updateEmployee(Employee employee);
 }

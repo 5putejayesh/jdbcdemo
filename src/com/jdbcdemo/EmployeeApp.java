@@ -8,31 +8,46 @@ import com.entity.Employee;
 import com.service.empdao.EmployeeDao;
 
 public class EmployeeApp {
+	Dao empDAO = getEmpService();
+	Employee employee;
+	List<Employee> allEmployee;
 
 	public static EmployeeDao getEmpService() {
 		return new EmployeeDao();
 	}
 
+	public void saveEmployee(Employee employee) {
+		int createEmployee = empDAO.createEmployee(employee);
+
+		if (createEmployee > 0)
+			System.out.println("Employee created.");
+		else
+			System.out.println("Employee not created.");
+	}
+
+	public void getEmployee(int id) {
+		employee = empDAO.getEmployee(id);
+		System.out.println(employee != null ? employee : "Not a valid ID");
+	}
+
+	public void getAllEmployee() {
+
+		allEmployee = empDAO.getAllEmployees();
+		allEmployee.forEach((emp) -> System.out.println(emp));
+
+	}
+
+	public void updateEmployee(Employee employee) {
+		System.out.println(empDAO.updateEmployee(employee) > 0 ? "Updated" : "Not a valid Employee Id");
+	}
+
 	public static void main(String[] args) {
 
 		Dao empDAO = getEmpService();
+		EmployeeApp employeeApp = new EmployeeApp();
 		int id;
 		String name;
 		String salary;
-		Employee employee;
-		List<Employee> allEmployee;
-
-		/*
-		 * System.out.println(empDAO.getEmployee(1)); System.out.println();
-		 * List<Employee> allEmployee = empDAO.getAllEmployees();
-		 * 
-		 * allEmployee.forEach((e) -> System.out.println(e));
-		 * 
-		 * employee = new Employee(3, "Abhi", "1500000");
-		 * 
-		 * System.out.println(empDAO.ceateEmployee(employee) > 0 ? "inserted" :
-		 * "not inserted");
-		 */
 
 		Scanner scanner = new Scanner(System.in);
 		char ch;
@@ -52,9 +67,8 @@ public class EmployeeApp {
 				name = scanner.next();
 				System.out.println("Enter Emp Salary");
 				salary = scanner.next();
-				employee = new Employee(id, name, salary);
 
-				empDAO.ceateEmployee(employee);
+				employeeApp.saveEmployee(new Employee(id, name, salary));
 				break;
 			case 2:
 				System.out.println("\t 1.For Specific Employee By ID");
@@ -64,12 +78,10 @@ public class EmployeeApp {
 				case 1:
 					System.out.println("Enter ID: ");
 					id = scanner.nextInt();
-					employee = empDAO.getEmployee(id);
-					System.out.println(employee != null ? employee : "Not a valid ID");
+					employeeApp.getEmployee(id);
 					break;
 				case 2:
-					allEmployee = empDAO.getAllEmployees();
-					allEmployee.forEach((emp) -> System.out.println(emp));
+					employeeApp.getAllEmployee();
 					break;
 				default:
 					break;
@@ -78,7 +90,6 @@ public class EmployeeApp {
 			case 3:
 				System.out.println("enter ID to update Employee: ");
 				id = scanner.nextInt();
-				employee = new Employee();
 
 				System.out.println("enter new name for id :" + id);
 				name = scanner.next();
@@ -86,10 +97,7 @@ public class EmployeeApp {
 				System.out.println("enter new salary for id :" + id);
 				salary = scanner.next();
 
-				employee.setEmp_Id(id);
-				employee.setEmp_Name(name);
-				employee.setEmp_Salary(salary);
-				System.out.println(empDAO.updateEmployee(employee) > 0 ? "Updated" : "Not a valid Employee iD");
+				employeeApp.updateEmployee(new Employee(id, name, salary));
 				break;
 			default:
 				break;
@@ -98,6 +106,7 @@ public class EmployeeApp {
 			ch = scanner.next().charAt(0);
 		} while (ch == 'Y' || ch == 'y');
 		scanner.close();
+		
 	}
 
 }

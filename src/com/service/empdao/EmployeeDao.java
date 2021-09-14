@@ -58,7 +58,7 @@ public class EmployeeDao implements Dao {
 	}
 
 	@Override
-	public int ceateEmployee(Employee employee) {
+	public int createEmployee(Employee employee) {
 		String sql = "insert into jdbc_employees (emp_id,emp_name,emp_salary)  values(?,?,?)";
 		try (Connection connection = JDBCUtil.getConnection()) {
 			preparedStatement = connection.prepareStatement(sql);
