@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.config.JDBCUtil;
 import com.dao.Dao;
 import com.entity.Employee;
-import com.util.JDBCUtil;
 
 public class EmployeeDao implements Dao {
 	PreparedStatement preparedStatement;
